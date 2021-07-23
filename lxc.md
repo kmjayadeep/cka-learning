@@ -16,6 +16,7 @@ You may need to replace `iptables` with `iptables-nft` while installation
 ## Initialize lxd
 
 ```
+sctl start lxd
 # Add user to lxd group
 sudo usermod -a -G lxd $(whoami)
 newgrp lxd
@@ -29,3 +30,5 @@ sudo lxd init --auto
 lxc profile create kubernetes
 lxc profile edit kubernetes < kubernetes.profile
 ```
+
+A restart might be good to avoid some issues
