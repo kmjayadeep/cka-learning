@@ -7,7 +7,9 @@ My notes and preparation materials for Certified Kubernetes Administrator Exam. 
 * LXC containers
 * Kubernetes the hard way <https://github.com/kelseyhightower/kubernetes-the-hard-way>
 * <killer.sh> Possibly a good way to experience the exam environment. Need to check if it provides free access
-
+* <https://github.com/alijahnas/CKA-practice-exercises>
+* https://github.com/alijahnas/CKA-practice-exercises
+* play with kind
 
 # Plan
 
