@@ -1,6 +1,6 @@
 # CKA Learning Repo
 
-My notes and preparation materials for Certified Kubernetes Administrator Exam. This repo may also contain additional resources and links which are not related to CKA, but generally useful for Kubernetes administrations
+My notes and preparation materials for Certified Kubernetes Administrator Exam. This repo may also contain additional resources and links which are not related to CKA, but generally useful for Kubernetes administration
 
 # Things to learn and research
 
@@ -8,7 +8,6 @@ My notes and preparation materials for Certified Kubernetes Administrator Exam. 
 * Kubernetes the hard way <https://github.com/kelseyhightower/kubernetes-the-hard-way>
 * <killer.sh> Possibly a good way to experience the exam environment. Need to check if it provides free access
 * <https://github.com/alijahnas/CKA-practice-exercises>
-* https://github.com/alijahnas/CKA-practice-exercises
 * play with kind
 
 # Plan
@@ -18,3 +17,8 @@ My notes and preparation materials for Certified Kubernetes Administrator Exam. 
 1. Register for the Exam
 1. Master the kubernetes official documentation
 1. Take some sample test from somewhere
+
+
+# Links
+
+* kubernetes-the-hard-way steps using LXC containers : <kubernetes-the-hard-way.md>
