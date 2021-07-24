@@ -32,3 +32,7 @@ lxc profile edit kubernetes < kubernetes.profile
 ```
 
 A restart might be good to avoid some issues
+
+## Troubleshooting tips
+
+[https://www.adaltas.com/en/2020/02/04/install-debug-lxd-k8s/]

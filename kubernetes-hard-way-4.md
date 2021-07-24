@@ -220,3 +220,12 @@ EOF
   sudo systemctl start containerd kubelet kube-proxy
 }
 ```
+
+If you get into this weird stupid error in kubelet status : `/dev/kmsg: no such file or director`
+just run
+
+```
+ln -s /dev/console /dev/kmsg
+```
+
+## Route
