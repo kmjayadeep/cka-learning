@@ -12,13 +12,15 @@ My notes and preparation materials for Certified Kubernetes Administrator Exam. 
 
 # Plan
 
-1. Complete `Kubernetes the hard way` using LXC containers and document the steps (Or maybe using digitalocean droplets)
-1. Go through a CKA excercises repo and try out all the excercises
-1. Register for the Exam
-1. Master the kubernetes official documentation
-1. Take some sample test from somewhere
+[x] Complete `Kubernetes the hard way` using LXC containers and document the steps (Or maybe using digitalocean droplets)
+[] Go through handbook and curriculm
+[] Go through a CKA excercises repo and try out all the excercises
+[] Register for the Exam
+[] Master the kubernetes official documentation
+[] Take some sample test from somewhere
 
 
 # Links
 
-* kubernetes-the-hard-way steps using LXC containers : <kubernetes-the-hard-way.md>
+* kubernetes-the-hard-way steps using LXC containers : [kubernetes-the-hard-way.md]
+* CKA curriculm [https://github.com/cncf/curriculum/blob/master/CKA_Curriculum_v1.21.pdf]
