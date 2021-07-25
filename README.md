@@ -22,5 +22,5 @@ My notes and preparation materials for Certified Kubernetes Administrator Exam. 
 
 # Links
 
-* kubernetes-the-hard-way steps using LXC containers : [kubernetes-the-hard-way.md]
+* kubernetes-the-hard-way steps using LXC containers : [kubernetes-the-hard-way.md](Kubernetes the hard way)
 * CKA curriculm [https://github.com/cncf/curriculum/blob/master/CKA_Curriculum_v1.21.pdf]
