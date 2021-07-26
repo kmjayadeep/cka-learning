@@ -7,20 +7,68 @@ My notes and preparation materials for Certified Kubernetes Administrator Exam. 
 * LXC containers
 * Kubernetes the hard way <https://github.com/kelseyhightower/kubernetes-the-hard-way>
 * <killer.sh> Possibly a good way to experience the exam environment. Need to check if it provides free access
+* [https://github.com/alijahnas/CKA-practice-exercises]
 * <https://github.com/alijahnas/CKA-practice-exercises>
+* [https://medium.com/@pmvk/tips-to-crack-certified-kubernetes-administrator-cka-exam-c949c7a9bea1]
 * play with kind
+* RBAC and certificates and stuff
 
 # Plan
 
-- [x] Complete `Kubernetes the hard way` using LXC containers and document the steps (Or maybe using digitalocean droplets)
-- [ ] Go through handbook and curriculm
+- [x] Complete `Kubernetes the hard way` using LXC containers and document the steps (Or maybe using digitalocean droplets) - try multiple times
+- [x] Go through handbook and curriculm
+- [ ] Learn RBAC from official doc
 - [ ] Go through a CKA excercises repo and try out all the excercises
 - [ ] Register for the Exam
 - [ ] Master the kubernetes official documentation
 - [ ] Take some sample test from somewhere
+- [ ] Install kubernetes in a single node using binaries, without tls and all
 
 
 # Links
 
 * kubernetes-the-hard-way steps using LXC containers : [https://github.com/kmjayadeep/cka-learning/blob/main/kubernetes-hard-way.md]
 * CKA curriculm [https://github.com/cncf/curriculum/blob/master/CKA_Curriculum_v1.21.pdf]
+
+# Environment
+
+## Kind cluster
+
+Kubernetes in docker is the easiest way to get started with kubernetes. It has most of the things needed to practice in-cluster scenarios.
+Also, it is 1.21 Kubernetes, which is what we'll be having in the exam this quarter. It uses etcd too. So  we can try out etcd commands as well - like backup and restore
+
+
+```
+kind create cluster
+❯ kind create cluster
+Creating cluster "kind" ...
+ ✓ Ensuring node image (kindest/node:v1.21.1) 🖼
+ ✓ Preparing nodes 📦  
+ ✓ Writing configuration 📜 
+ ✓ Starting control-plane 🕹️ 
+ ✓ Installing CNI 🔌 
+ ✓ Installing StorageClass 💾 
+Set kubectl context to "kind-kind"
+You can now use your cluster with:
+
+kubectl cluster-info --context kind-kind
+```
+
+## Setting context and namespace
+
+```
+k config set-context kind-kind --namespace=kube-system
+k config use-context kind-kind
+```
+
+## Practice tests
+
+The practice questions i have tried and it's answers are organized in this repo as `tests-*.md`
+
+
+## Learning Plan
+
+* Day - 1 (23/07/2021): Kubernetes the hard way
+* Day - 2 (24/07/2021): Kubernetes the hard way
+* Day - 3 (25/07/2021): RBAC basics
+* Day - 4 (26/07/2021): RBAC yamls and excercises
