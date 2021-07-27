@@ -6,12 +6,13 @@ My notes and preparation materials for Certified Kubernetes Administrator Exam. 
 
 * LXC containers
 * Kubernetes the hard way <https://github.com/kelseyhightower/kubernetes-the-hard-way>
-* <killer.sh> Possibly a good way to experience the exam environment. Need to check if it provides free access
-* [https://github.com/alijahnas/CKA-practice-exercises]
+* [killer.sh] Possibly a good way to experience the exam environment. Need to check if it provides free access
 * <https://github.com/alijahnas/CKA-practice-exercises>
 * [https://medium.com/@pmvk/tips-to-crack-certified-kubernetes-administrator-cka-exam-c949c7a9bea1]
 * play with kind
 * RBAC and certificates and stuff
+* PriorityClass, ResourceQuotas, NetworkPolicy
+* Generators for yaml
 
 # Plan
 
@@ -19,7 +20,7 @@ My notes and preparation materials for Certified Kubernetes Administrator Exam. 
 - [x] Go through handbook and curriculm
 - [ ] Learn RBAC from official doc
 - [ ] Go through a CKA excercises repo and try out all the excercises
-- [ ] Register for the Exam
+- [x] Register for the Exam
 - [ ] Master the kubernetes official documentation
 - [ ] Take some sample test from somewhere
 - [ ] Install kubernetes in a single node using binaries, without tls and all
@@ -63,7 +64,7 @@ k config use-context kind-kind
 
 ## Practice tests
 
-The practice questions i have tried and it's answers are organized in this repo as `tests-*.md`
+The practice questions I have tried and it's answers are organized in this repo as `tests-*.md`
 
 
 ## Learning Plan
@@ -71,4 +72,4 @@ The practice questions i have tried and it's answers are organized in this repo 
 * Day - 1 (23/07/2021): Kubernetes the hard way
 * Day - 2 (24/07/2021): Kubernetes the hard way
 * Day - 3 (25/07/2021): RBAC basics
-* Day - 4 (26/07/2021): RBAC yamls and excercises
+* Day - 4 (26/07/2021): RBAC yamls and excercises - role, clusterole, serviceaccount, clusterrolebinding, rolebinding

@@ -33,3 +33,4 @@ k apply -f secretguy-binding.yaml
 * Create the role using `k create role` command. Use `k create role -h` help if get stuck
 * API Group need not be provided. It will be filled automatically with create role command
 * Write to yaml, verify and apply it
+* use `--as=username` and `--as-group=groupname` to run kubectl commands as a particular user and group
