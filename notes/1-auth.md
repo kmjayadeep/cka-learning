@@ -113,8 +113,106 @@ k config set-context kind-kind \
 k get po --kubeconfig kind.yaml
 ```
 
-# Aerviceaccounts
+# Serviceaccounts
 
 * serviceaccount admission controller - inject default sa
 * token controller - manages serviceaccount secret
 * serviceaccount controller - makes sure default sa exists in all namespaces
+
+# Authorization modules
+
+* ABAC - attribute files
+* RBAC
+* Webhook - remote endpoint
+* Node - authorize kubelet api requests
+* AlwaysDeny, AlwaysAllow - for testing only
+
+# RBAC
+
+* rolebinding roleref is immutable
+* resources can be subresource - eg: pod/log
+* can specify resourceNames in some cases - eg: resourceNames: ['my-configmap']
+* aggregated clusterroles - clusterroles with specified labels will be aggregated to this clusterrole
+* default user-facing roles like admin,view,edit are aggregated roles. This lets you add crd roles to the existing clusteroles
+
+## RBAC Subjects
+
+* system:serviceaccount refers to a serviceaccount username
+* system:serviceaccounts refers to a serviceaccount group
+
+Eg:
+For all service accounts in any namespace:
+
+````
+subjects:
+- kind: Group
+  name: system:serviceaccounts
+  apiGroup: rbac.authorization.k8s.io
+````
+
+For all service accounts in the "dev" group in the "development" namespace:
+```
+subjects:
+- kind: Group
+  name: system:serviceaccounts:dev
+  apiGroup: rbac.authorization.k8s.io
+  namespace: development
+```
+
+can omit namespace to allow in all namespaces
+
+## User facing roles
+
+* edit
+* view
+* admin
+* cluster-admin
+
+## Examples
+
+Create clusterrole with api group specified. apps is the group and replicasets is the resource
+```
+kubectl create clusterrole foo --verb=get,list,watch --resource=replicasets.apps
+```
+
+With multiple verbs and subresources
+```
+kubectl create clusterrole foo --verb=get,list,watch --resource=pods,pods/status
+```
+
+Aggregation rule labels
+
+```
+kubectl create clusterrole monitoring --aggregation-rule="rbac.example.com/aggregate-to-monitoring=true"
+```
+
+to serviceaccount myapp in acme ns
+```
+kubectl create rolebinding myapp-view-binding --clusterrole=view --serviceaccount=acme:myapp --namespace=acme
+```
+
+## Auth reconcile
+
+Updates bindings based on yaml file
+
+```
+kubectl auth reconcile -f my-rbac-rules.yaml
+```
+
+# ABAC
+
+attribute based.
+Out of scope for CKA. Old way of authorization
+
+# Node based
+
+Used for kubelets. Makes sure that kubelets can only access the things that node is running and needs access to. For eg, it won't be able to access a secret unless it is
+mounted to one of the pods running in that node. This is why it needs a separate Authorization plugin.
+
+Kubelets should be in system:node group. This is used in combination with RBAC.
+
+# Webhook mode
+
+Uses a kubeconfig format for specifying Webhook urls, certificates etc.
+
+A request is made to the Webhook to check if the client has access to an operation. Follows a specific request format. Based on the response from Webhook, the request is allowed or rejected
