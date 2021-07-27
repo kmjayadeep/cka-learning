@@ -2,6 +2,16 @@
 
 My notes and preparation materials for Certified Kubernetes Administrator Exam. This repo may also contain additional resources and links which are not related to CKA, but generally useful for Kubernetes administration
 
+
+# Folder structure
+
+* README.md - outline, plan, structure etc.
+* notes/ - Notes i prepared while learning, based on curriculm
+* tests/ - Practice tests I went through and their solution. In the order of curriculm
+* yamls/ - Yaml files, certs etc. I created as part of the practice tests
+* lxc.md - instructions to setup lxc containers
+* kubernetes-hard-way-\*.md - Instructions I followed to setup kubernetes based on the famous `kubernetes the hard way` guide
+
 # Things to learn and research
 
 * LXC containers
@@ -62,14 +72,10 @@ k config set-context kind-kind --namespace=kube-system
 k config use-context kind-kind
 ```
 
-## Practice tests
-
-The practice questions I have tried and it's answers are organized in this repo as `tests-*.md`
-
-
 ## Learning Plan
 
 * Day - 1 (23/07/2021): Kubernetes the hard way
 * Day - 2 (24/07/2021): Kubernetes the hard way
 * Day - 3 (25/07/2021): RBAC basics
 * Day - 4 (26/07/2021): RBAC yamls and excercises - role, clusterole, serviceaccount, clusterrolebinding, rolebinding
+* Day - 5 (27/07/2021): certificates, creating new user, kubeadm

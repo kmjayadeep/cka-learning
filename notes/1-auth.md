@@ -30,3 +30,91 @@ So it cannot be revoked
 Webhook token -> Use external  Webhook to verify token
 
 NOte: use `--as=username` and `--as-group=groupname` to run kubectl commands as a particular user and group
+
+# Creating new normal user
+
+Generate private key And CSR
+
+```
+openssl genrsa -out jd.key 2048
+openssl req -new -key jd.key -out jd.csr
+```
+
+Organization name will be user group and Common Name will be user name
+
+Create CSR in kubernetes
+
+```
+CSR=$(cat jd.csr | base64 | tr -d "\n")
+```
+
+``` 
+cat <<EOF | kubectl apply -f -
+apiVersion: certificates.k8s.io/v1
+kind: CertificateSigningRequest
+metadata:
+  name: jd
+spec:
+  request: $CSR
+  signerName: kubernetes.io/kube-apiserver-client
+  usages:
+  - client auth
+EOF
+```
+
+```
+❯ k get csr
+NAME   AGE   SIGNERNAME                            REQUESTOR          CONDITION
+jd     9s    kubernetes.io/kube-apiserver-client   kubernetes-admin   Pending
+```
+
+Approve
+
+```
+k certificate approve jd
+```
+
+Get certificate
+
+```
+k get csr jd -o jsonpath='{.status.certificate}' | base64 -d > jd.crt
+```
+
+## Create Role and rolebinding to test
+
+```
+k create role developer --resource=pods --verb=get --verb=list
+k create rolebinding jddeveloper --role=developer --user=jd
+k get po --as=jd
+```
+
+## Create a kubeconfig file
+
+```
+k konfig export kind-kind > kind.yaml
+```
+
+```
+k config set-credentials jd \
+  --client-certificate=jd.crt \
+  --client-key=jd.key \
+  --embed-certs=true \
+  --kubeconfig=kind.yaml
+```
+
+```
+k config set-context kind-kind \
+  --cluster=kind-kind \
+  --user=jd \
+  --kubeconfig=kind.yaml
+```
+
+```
+k get po --kubeconfig kind.yaml
+```
+
+# Aerviceaccounts
+
+* serviceaccount admission controller - inject default sa
+* token controller - manages serviceaccount secret
+* serviceaccount controller - makes sure default sa exists in all namespaces
