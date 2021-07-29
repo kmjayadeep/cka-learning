@@ -6,7 +6,7 @@ My notes and preparation materials for Certified Kubernetes Administrator Exam. 
 # Folder structure
 
 * README.md - outline, plan, structure etc.
-* notes/ - Notes i prepared while learning, based on curriculm
+* notes/ - Notes I prepared while learning, based on curriculm. They are organized on the order of curriculm and have a number prefix. There are some additional notes I added randomly, they won't have this number prefix
 * tests/ - Practice tests I went through and their solution. In the order of curriculm
 * yamls/ - Yaml files, certs etc. I created as part of the practice tests
 * lxc.md - instructions to setup lxc containers
