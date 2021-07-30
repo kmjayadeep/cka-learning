@@ -82,8 +82,8 @@ k config use-context kind-kind
 * Day - 5 (27/07/2021): certificates, creating new user, kubeadm
 * Day - 6 (28/07/2021): Setup cluster using kubeadm, complete kubeadm notes
 * Day - 7 (29/07/2021): Setup HA multi master cluster (stacked) using kubeadm
+* Day - 8 (30/07/2021): kubeadm cluster setup and kubeadm join on DO droplets. etcd backup and restore
 
-* Day - 8 (30/07/2021): kubeadm cluster setup and kubeadm join on DO droplets. remove node, kubeadm version update
-* Day - 9 (31/07/2021): etcd backup and restore
+* Day - 9 (31/07/2021): kubeadm version upgrade, remove worker nodes
 
-* Later - Generators
+* Later - Generators, kubernetes-hard-way (for the second time)

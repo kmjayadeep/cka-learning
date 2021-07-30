@@ -52,5 +52,12 @@ ETCDCTL_API=3 etcdctl --endpoints localhost:2379 \
   --cert=/etc/kubernetes/pki/etcd/server.crt \
   --key=/etc/kubernetes/pki/etcd/server.key \
   --cacert=/etc/kubernetes/pki/etcd/ca.crt \
+  --data-dir /var/lib/etcd \
   snapshot restore backup
 ```
+
+Note: To test restore on a running system,
+1. Delete etcd pod from kube-system namespace
+2. Delete /var/lib/etcd directory
+3. Run the above restore command
+4. Wait for some time and verify by checking the configmap
