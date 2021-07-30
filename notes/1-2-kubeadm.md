@@ -300,3 +300,10 @@ k get po -o wide
 k expose deploy web --type=NodePort --port=80
 curl localhost:[NodePort]
 ```
+
+## Cleanup doctl nodes
+
+```
+doctl compute droplet list
+doctl compute droplet delete [id]
+```
