@@ -190,3 +190,113 @@ Untaint master nodes
 ```
 kubectl taint node nodename node-role.kubernetes.io/master:NoSchedule-
 ```
+
+# Setting up a cluster on Digitalocean
+
+* Setup doctl
+
+```
+doctl auth init
+```
+
+* Create dropplets
+
+
+```
+doctl compute droplet create k1 --size s-2vcpu-2gb --image ubuntu-20-04-x64 --region nyc1 --ssh-keys f6:70:54:43:ee:b8:c6:36:ec:41:a8:76:8c:69:b2:73
+doctl compute droplet create k2 --size s-2vcpu-2gb --image ubuntu-20-04-x64 --region nyc1 --ssh-keys f6:70:54:43:ee:b8:c6:36:ec:41:a8:76:8c:69:b2:73
+```
+
+```
+doctl compute droplet list
+```
+
+SSh and install the stuff
+
+
+```
+ssh root@64.227.29.105 # master
+ssh root@147.182.186.192 # worker
+```
+
+```
+apt update
+swapoff -a # Disable swap
+```
+
+Check and enable `br_netfilter`
+
+```
+lsmod | grep br_netfilter
+modprobe br_netfilter
+```
+
+```
+cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
+br_netfilter
+EOF
+
+cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
+net.bridge.bridge-nf-call-ip6tables = 1
+net.bridge.bridge-nf-call-iptables = 1
+EOF
+sudo sysctl --system
+```
+
+* Install and start docker
+
+
+```
+apt install docker.io -y
+systemctl enable docker
+docker ps
+```
+
+* kubeadm and stuff
+
+```
+sudo apt-get update
+sudo apt-get install -y apt-transport-https ca-certificates curl
+```
+
+```
+sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
+echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+sudo apt-get update
+sudo apt-get install -y kubelet kubeadm kubectl
+sudo apt-mark hold kubelet kubeadm kubectl
+```
+
+On master node
+```
+kubeadm init --pod-network-cidr=192.168.0.0/16
+```
+
+Install calico
+
+````
+kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
+````
+
+To setup worker node
+
+```
+kubeadm token create --print-join-command
+```
+
+Copy that command and run on worker node
+which looks like this
+
+```
+kubeadm join 64.227.29.105:6443 --token [token] --discovery-token-ca-cert-hash sha256:[hash]
+```
+
+Test
+
+```
+k create deploy web --image=nginx --replicas=2
+k scale deploy web --replicas=10
+k get po -o wide
+k expose deploy web --type=NodePort --port=80
+curl localhost:[NodePort]
+```
