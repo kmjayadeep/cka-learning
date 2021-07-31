@@ -23,6 +23,10 @@ My notes and preparation materials for Certified Kubernetes Administrator Exam. 
 * RBAC and certificates and stuff
 * PriorityClass, ResourceQuotas, NetworkPolicy
 * Generators for yaml
+* jq and yq
+* Explore jsonpath
+* Learn kustomize
+* awk, grep regex, xargs etc
 
 # Plan
 
@@ -31,10 +35,12 @@ My notes and preparation materials for Certified Kubernetes Administrator Exam. 
 - [x] Register for the Exam
 - [x] Learn RBAC from official doc
 - [x] Learn each topic from curriculm separately and prepare notes
+- [ ] Install using kubeadm on digitalocean droplets and play with it
 - [ ] Go through a CKA excercises repo and try out all the excercises
 - [ ] Master the kubernetes official documentation
 - [ ] Take some sample test from somewhere
 - [ ] Install kubernetes in a single node using binaries, without tls and all
+- [ ] Try out killer.sh free sessions
 
 
 # Links
@@ -75,6 +81,7 @@ k config use-context kind-kind
 
 ## Learning Plan
 
+Module 1 - Cluster Architecture, Installation & Configuration - 25%
 * Day - 1 (23/07/2021): Kubernetes the hard way
 * Day - 2 (24/07/2021): Kubernetes the hard way
 * Day - 3 (25/07/2021): RBAC basics
@@ -83,7 +90,10 @@ k config use-context kind-kind
 * Day - 6 (28/07/2021): Setup cluster using kubeadm, complete kubeadm notes
 * Day - 7 (29/07/2021): Setup HA multi master cluster (stacked) using kubeadm
 * Day - 8 (30/07/2021): kubeadm cluster setup and kubeadm join on DO droplets. etcd backup and restore
-
 * Day - 9 (31/07/2021): kubeadm version upgrade, remove worker nodes
+
+Module 2 - Workloads and Scheduling - 15%
+* Day - 10 (01/08/2021) Sun : Deployments, Rolling updates, rollback, scale
+* Day - 11 (02/08/2021) Mon : configmap, secrets - CRUD, mounting, injecting into pods
 
 * Later - Generators, kubernetes-hard-way (for the second time)

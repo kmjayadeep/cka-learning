@@ -307,3 +307,82 @@ curl localhost:[NodePort]
 doctl compute droplet list
 doctl compute droplet delete [id]
 ```
+
+# Kubadm version upgrade
+
+Setup Digitalocean servers and install prerequisites as above (except kubernetes stuff)
+
+Install kubernetes v1.18.13-00 on master
+ 
+```
+apt install -y kubeadm=1.18.13-00 kubelet=1.18.13-00 kubectl=1.18.13-00
+```
+
+Join the worker node using kubeadm join command as given above
+
+
+Do the upgrade
+
+```
+apt update
+apt-cache madison kubeadm
+```
+
+```
+apt install -y kubeadm=1.19.13-00
+```
+
+```
+kubeadm upgrade plan
+kubeadm upgrade apply v1.19.13
+```
+
+Upgrade kubelet
+
+```
+kubectl drain k1 --ignore-daemonsets
+apt install kubelet=1.19.13-00 kubectl=1.19.13-00
+systemctl daemon-reload
+systemctl restart kubelet
+```
+
+enable scheduling
+
+```
+kubectl uncordon k1
+```
+
+Now `k get no` should show the current node as v1.19.13
+
+## Upgrade worker nodes
+
+Better untaint the master first
+
+
+```
+k taint node k1 node-role.kubernetes.io/master:NoSchedule-
+```
+
+```
+apt install -y kubeadm=1.19.13-00
+```
+
+Run upgrade checks
+```
+kubeadm upgrade node
+```
+
+Drain node and upgrade kubelet
+
+```
+kubectl drain k2 --ignore-daemonsets
+apt install kubelet=1.19.13-00 kubectl=1.19.13-00
+systemctl daemon-reload
+systemctl restart kubelet
+```
+
+Enable scheduling
+
+```
+k uncordon k2
+```
