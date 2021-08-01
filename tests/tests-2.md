@@ -45,3 +45,13 @@ Then set the image to nginx:1.16.1 and watch pods getting recreated
 ```
 k create deploy web --replicas=3 --image=nginx --dry-run=client -o yaml > web.yaml
 ```
+
+Then add the strategy as below
+
+```
+strategy:
+  type: RollingUpdate
+  rollingUpdate:
+    maxUnavailable: 50%
+    maxSurge: 0%
+```
