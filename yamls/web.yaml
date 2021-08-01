@@ -9,16 +9,16 @@ spec:
   selector:
     matchLabels:
       app: web
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 50%
+      maxSurge: 0%
   template:
     metadata:
       labels:
         app: web
     spec:
       containers:
-        - image: nginx
-          name: nginx
-          resources:
-            requests:
-              cpu: 1m
-            limits:
-              cpu: 1m
+      - image: nginx
+        name: nginx

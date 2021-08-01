@@ -96,4 +96,4 @@ Module 2 - Workloads and Scheduling - 15%
 * Day - 10 (01/08/2021) Sun : Deployments, Rolling updates, rollback, scale
 * Day - 11 (02/08/2021) Mon : configmap, secrets - CRUD, mounting, injecting into pods
 
-* Later - Generators, kubernetes-hard-way (for the second time)
+* Later - Generators, kubernetes-hard-way (for the second time), HPA

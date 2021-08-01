@@ -16,6 +16,16 @@ The flag `--record` adds the command which you ran as an annotation to the resou
 It will be shown as CHANGE-CAUSE while listing rollout history.
 This can be used to track how the change happened
 
+`spec.revisionHistoryLimit` indicates how many replicaset history you want to retain. Default is 10
+
+## strategy type `spec.strategy.type`
+
+`Recreate` means all pods will be removed the new pods will be created
+`RollingUpdate` [default] rolling update 
+
+Default strategy for deployment rollout is 25% maximum additional pods, 25% max unavailable
+(minimum 75% of the pods should be up and running)
+
 ## Rollout
 
 * Run `k rollout status deploy/[name]` to check rollout status
@@ -27,8 +37,15 @@ To update the image of an existing deployment,
 kubectl set image deploy/[name] [containerName]=[newImage]
 ```
 
-* Default strategy for deployment rollout is 25% maximum additional pods, 25% max unavailable
-(minimum 75% of the pods should be up and running)
+You can pause and resume rollouts even while it is in progress using `k rollout pause/resume/restart deploy/[name]` command
+
+You can pause a rollout, Then do all sorts of changes to the deployment resume the rollout to get all changes done at once
+If the rollout is paused and you make changes, then UP-TO-DATE count will become 0 for the deployment
+
+cannot rolback a paused rollout until you resume it
+
+When you pause a rollback, `paused:true` is added to corresponding deployment spec.
+So we can do it in declarative manner as well!
 
 ## Undo
 

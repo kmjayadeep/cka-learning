@@ -1,6 +1,6 @@
 # Practice tests 2 - Workloads and Scheduling
 
-## Deployments
+## Deployments and Rollouts
 
 * Create a deployment `web` using the image `nginx` which has 3 replicas. Watch it's rollout status
 
@@ -26,4 +26,22 @@ k rollout undo deploy/web --to-revision=9
 
 ```
 k scale deploy web --replicas=10
+```
+
+* Pause the rollout, update the cpu,memory limits and requests, update image and then resume rollout
+
+```
+k rollout pause deploy/web
+```
+
+```
+k set resources deploy web -c nginx --limits=cpu=10m,memory=20Mi
+k set resources deploy web -c nginx --requests=cpu=5m,memory=5Mi
+```
+
+* Create a deployment web with nginx image of replica count 3. Set maxsurge to 0 and max unavailable to 50%.
+Then set the image to nginx:1.16.1 and watch pods getting recreated
+
+```
+k create deploy web --replicas=3 --image=nginx --dry-run=client -o yaml > web.yaml
 ```
