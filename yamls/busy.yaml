@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: busy
+  name: busy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: busy
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: busy
+    spec:
+      containers:
+      - command:
+        - sleep
+        - "3600"
+        image: busybox
+        name: busybox
+        envFrom:
+        - configMapRef:
+            name: busyconfig
+          prefix: kooooo
+        env:
+        - name: doo
+          valueFrom:
+            configMapKeyRef:
+              name: busyconfig
+              key: works
+        resources: {}
+        volumeMounts:
+        - name: fromconfig
+          mountPath: /cm
+      volumes:
+      - name: fromconfig
+        configMap:
+          name: busyconfig
+status: {}

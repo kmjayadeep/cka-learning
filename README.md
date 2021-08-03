@@ -35,12 +35,15 @@ My notes and preparation materials for Certified Kubernetes Administrator Exam. 
 - [x] Register for the Exam
 - [x] Learn RBAC from official doc
 - [x] Learn each topic from curriculm separately and prepare notes
-- [ ] Install using kubeadm on digitalocean droplets and play with it
+- [x] Install using kubeadm on digitalocean droplets and play with it
 - [ ] Go through a CKA excercises repo and try out all the excercises
 - [ ] Master the kubernetes official documentation
 - [ ] Take some sample test from somewhere
 - [ ] Install kubernetes in a single node using binaries, without tls and all
 - [ ] Try out killer.sh free sessions
+- [ ] Schedule the exam (sometime around august last week or September first week 2021)
+- [ ] Go through notes again
+- [ ] Take the exam!
 
 
 # Links
