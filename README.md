@@ -94,6 +94,7 @@ Module 1 - Cluster Architecture, Installation & Configuration - 25%
 
 Module 2 - Workloads and Scheduling - 15%
 * Day - 10 (01/08/2021) Sun : Deployments, Rolling updates, rollback, scale
-* Day - 11 (02/08/2021) Mon : configmap, secrets - CRUD, mounting, injecting into pods
+* Day - 11 (02/08/2021) Mon : Off
+* Day - 12 (02/08/2021) Tue : configmap, secrets - CRUD, mounting, injecting into pods, scaling application, HPA
 
-* Later - Generators, kubernetes-hard-way (for the second time), HPA
+* Later - Generators, kubernetes-hard-way (for the second time)
