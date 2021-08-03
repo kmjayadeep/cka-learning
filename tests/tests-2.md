@@ -55,3 +55,48 @@ strategy:
     maxUnavailable: 50%
     maxSurge: 0%
 ```
+
+## Configmaps
+
+* Create a configmap called `myconfig` with one key `hello`  and value `world`
+
+```
+k create cm myconfig --from-literal=hello=world
+```
+
+* Create a busybox deployment, pass the above configmap as an environment variable.
+Open a shell into the pod and print env variables
+
+```
+k create deploy busybox --image=busybox -o yaml --dry-run=client > busybox.yaml
+```
+
+Add the following to container spec
+
+```
+env:
+- name: HELLO
+  valueFrom: 
+    configMapKeyRef:
+      name: myconfig
+      key: hello
+```
+
+
+* Modify the same busybox deployment to mount the secret as a file and
+print the output that file using `cat` command
+
+```
+volumes:
+- name: config
+  configMap:
+    name: myconfig
+containers:
+- image: busybox
+  name: busybox
+  command: [ "cat", "/cm/hello" ]
+  volumeMounts:
+  - name: config
+    mountPath: /cm
+    readOnly: true
+```

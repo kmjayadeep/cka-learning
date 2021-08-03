@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: busybox
+  name: busybox
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: busybox
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: busybox
+    spec:
+      volumes:
+      - name: config
+        configMap:
+          name: myconfig
+      containers:
+      - image: busybox
+        name: busybox
+        command: [ "cat", "/cm/hello" ]
+        volumeMounts:
+        - name: config
+          mountPath: /cm
+          readOnly: true
+status: {}
