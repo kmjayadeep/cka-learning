@@ -100,5 +100,6 @@ Module 2 - Workloads and Scheduling - 15%
 * Day - 11 (02/08/2021) Mon : Off
 * Day - 12 (03/08/2021) Tue : configmap, secrets - CRUD, mounting, injecting into pods
 * Day - 13 (04/08/2021) Wed : Scaling application, HPA, self healing deployments
+* Day - 14 (05/08/2021) Thu : Resource limits, manifest and templating tools
 
 * Later - Generators, kubernetes-hard-way (for the second time), kustomize generators
