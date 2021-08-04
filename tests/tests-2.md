@@ -100,3 +100,57 @@ containers:
     mountPath: /cm
     readOnly: true
 ```
+
+## Secrets
+
+* Create a secret `web` from a file named `web.yaml`
+
+```
+k create secret generic web --from-file=web.yaml
+```
+
+* Print the value of a key `web.yaml` in the secret `web`
+
+```
+k get secret web -o json | jq -r '.data["web.yaml"]' | base64 -d
+```
+
+* Create a deployment which mounts this secret and prints the contents using `cat`
+
+```
+volumes:
+- name: sec
+  secret:
+    secretName: web
+containers:
+- image: busybox
+  name: busybox
+  command: ["cat", "/se/web.yaml"]
+  volumeMounts:
+  - name: sec
+    readOnly: true
+    mountPath: /se
+```
+
+## Scale
+
+* Create a deployement `web` using `nginx` image. Then scale it to 3 pods afterwards
+
+```
+k create deploy web --image nginx
+```
+
+```
+k scale deploy web --replicas=3
+```
+
+* Create a deployment of a custom apache server below
+```
+kubectl apply -f https://k8s.io/examples/application/php-apache.yaml
+```
+
+* Create an autoscaler for the apache with pods 2-10 and target cpu 70%
+
+```
+k autoscale deploy php-apache --min 2 --max 10 --cpu-percent 70
+```

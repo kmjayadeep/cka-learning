@@ -88,3 +88,30 @@ volumeMounts:
 Mounted volume is always readOnly even if you don't specify so.
 
 # Secrets
+
+Secrets are kind of similar to configMaps, but are encrypted at rest and are more secure.
+
+It can contain `data` or `stringData` fields. `data` is base64 encoded and `stringData` is plain string.
+Both are optional
+
+The `type` can be `Opaque` (default) or any built-in types or it can be user defined.
+It is used to differenciate the type of secret data.
+
+We can create secret the same way as we did for confgmap
+
+```
+k create secret generic test --from-literal foo=bar
+```
+
+We can also create secrets for `tls` certs and `docker` secret using kubectl
+
+Run the following to view more details about the args
+`k create secret tls -h`
+`k create secret docker-registry -h`
+
+Secrets can be mounted to pods as volumes the same way as we did for configmap.
+Secrets can also be passsed as environment variables the same way as configmap,
+using `secretKeyRef` in `valueFrom` or `secretRef` in `envFrom`.
+
+Secrets are mounted into a `tmpfs` in the node and mounted into the pod. This
+avoids writing the secret into disk.
