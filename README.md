@@ -101,6 +101,6 @@ Module 2 - Workloads and Scheduling - 15%
 * Day - 12 (03/08/2021) Tue : configmap, secrets - CRUD, mounting, injecting into pods
 * Day - 13 (04/08/2021) Wed : Scaling application, HPA
 * Day - 14 (05/08/2021) Thu : PDB, Lifecycle hooks, Container probes, Resource limits, LimitRange, Quota, PriorityClass
-* Day - 15 (06/08/2021) Fri : manifest and templating tools
+* Day - 15 (06/08/2021) Fri : manifest and templating tools 
 
-* Later - Generators, kubernetes-hard-way (for the second time), kustomize generators
+* Later - Generators, kubernetes-hard-way (for the second time), kustomize, generators

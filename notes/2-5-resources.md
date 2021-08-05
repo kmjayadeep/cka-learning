@@ -35,3 +35,48 @@ limiting the total resource limits in a namespace.
 The events will show if creation of any new objects fail due to quota.
 
 # LimitRange
+
+LimitRange can enforce minimum/maximun/default resource usage per container
+in a namespace.
+
+Example:
+
+```
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: cpu-limit-range
+spec:
+  limits:
+  - default:
+      cpu: 1
+    defaultRequest:
+      cpu: 0.5
+    type: Container
+```
+
+This sets `limits.cpu` to `1` and `requests.cpu` to `500m` by default
+
+There can be `default`, `defaultRequest`, `max` and `maxLimitRequestRatio` specified in the limits
+
+If in a pod spec, container limit is specified and request is not specified, 
+request wil be aded to match the limit, instead of taking the limitrange defaultRequest.
+
+LimitRange and Quota, in combination is used to restrict resource usage.
+LimitRange limits the resource requests per container. Quota limits the total resource usage in a namespace.
+
+# PriorityClass
+
+It is a clusterwide resource which can be used to assign priority to pods. 
+Higher priority pods are scheduled sooner than lower priority pods. Also, they can cause
+lower priority pods to be evicted if nodes doesn't have enough room to accomodate.
+Pods are evicted on the decreasing order of priority if there is a need.
+
+```
+k create pc highp --value 1000 --description highPriority
+```
+
+To create a pod with this PC, just add the field `priorityClassName` to the pod spec. The priority number
+will be added automatically to the pod based on the value
+
+By default, priority is 0 for the pods.
