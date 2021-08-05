@@ -154,3 +154,52 @@ kubectl apply -f https://k8s.io/examples/application/php-apache.yaml
 ```
 k autoscale deploy php-apache --min 2 --max 10 --cpu-percent 70
 ```
+
+## Pod disruption budget
+
+* Create a deployement web with nginx image and replicas 4.
+Create a disruption budget of 50% min available
+
+```
+k create deploy web --image nginx --replicas 4
+k create pdb web-pdb --selector app=web --min-available 50%
+```
+
+## Probes
+
+* Create a deployement with httpget livenesspobe
+
+```
+containers:
+- image: nginx
+  name: nginx
+  resources: {}
+  livenessProbe:
+    httpGet:
+      path: /
+      port: 80
+```
+
+* Create a deployment with exec livenessProbe
+
+```
+livenessProbe:
+  exec:
+    command:
+    - cat
+    - /tmp/healthy
+  initialDelaySeconds: 5
+  periodSeconds: 5
+```
+
+## Resource limits
+
+* Create a deployment `web` with image `nginx` and a cpu limit & request of 100m
+
+add this to container spec after creating deployement.
+```
+limits:
+  cpu: 100m
+requests:
+  cpu: 100m
+```
