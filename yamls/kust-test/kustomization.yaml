@@ -1,0 +1,8 @@
+resources:
+- deploy.yaml
+configMapGenerator:
+- name: myconfig
+  files:
+  - application.properties
+  literals:
+  - abc=deff
