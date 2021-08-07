@@ -203,3 +203,11 @@ limits:
 requests:
   cpu: 100m
 ```
+
+## Jobs
+
+* Create a job `date` using busybox image to print the current date
+
+```
+k create job date --image busybox -- date
+```

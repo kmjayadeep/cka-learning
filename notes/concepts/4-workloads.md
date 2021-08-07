@@ -72,6 +72,12 @@ containers in a pod. Pod needs `SYS_PTRACE` capability to add this
 Container filesystems are visible to other containers through /proc/$pid/root
 link
 
+## Running pods directly
+
+```
+k run nginx --image=nginx --rm -ti --restart=Never -- echo "hello wordddld"
+```
+
 # Deployment
 
 `k rollout` commands are used to do rolling updates and deployment
@@ -97,7 +103,8 @@ it provides
 * ordered rolling updates
 
 We can specify spec.volumeClaimTemplates in StatefulSet. The controller will
-create PVC for the pod automatically.
+create PVCs for the pod automatically based on this template and create volumes
+on the pod spec matching the PVCs
 
 # Daemonset
 
@@ -108,3 +115,19 @@ nodes
 
 Daemonsets tolerate a set of predefined taints by default and the pods are not
 evicted on these events
+
+A Daemonset can be easily created using kubectl by creating Deployment through
+`kubectl create` and then changing the kind to Daemonset.
+
+# Job
+
+Run jobs until they are complete
+
+`ttlSecondsAfterFinished` is used to clean up jobs after a certain period
+after completion. It will clean up corresponding pods as well. This is taken
+care by TTLController
+
+# CronJob
+
+Runs `Job` objects at a predefined time interval (cron expression).
+It js jobTemplate and schedule in the spec
