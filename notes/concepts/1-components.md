@@ -21,3 +21,44 @@ as expected.
 
 1. `DNS` -> DNS server to resolve pod and service addresses.
 1. `CNI` -> Takes care of assigning IPs, adding proper routes etc.
+
+
+# Nodes
+
+nodes can be registered by kubelet with predefined taints and labels.
+Alternatively, nodes can be added through kubelet. But until it is healty, no pods will be scheduled.
+
+node name should identify the node. This let us delete a machine and start another one and register with the same name. Kubernetes will treat it as the same as before.
+
+Node has 3 addresses -> HostName, InternalIP and ExternalIP
+
+Node has a lease object in kube-node-lease namespace. Kubelet updates
+the lease every 10 seconds to indicate that it is alive. If kubelet fails
+to send heartbeat for a specified period time, Node controller wil take 
+further action to start evicting the pods from the node
+
+From 1.22, Kubelets can run with Swap enabled. We can speficy the
+swap behaviour in kubelet configuration
+
+Kubelet has an https endpoint which the api server will use to connect
+for fetching pod logs, attaching or to do port forwarding
+
+## Conditions
+
+Conditions in the node status contain a list of observed conditions of the node.
+This looks like a general pattern used in other resources as well.
+A condition will contain a type, message, reason, status (true/false) and timestamps.
+
+
+# Controller
+
+Controllers usually watch a set of resources and talk to api server
+to reconcile current state to desired state for a particular resource
+eg: Node controller
+
+# Clout controller manager
+
+This controller embeds cloud specific logic. It includes Node controller,
+Route controller and Service controller to manage specific things
+with the cloud provider.
+

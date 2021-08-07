@@ -106,4 +106,4 @@ Module 3 - Services and Networking - 20%
 * Day - 15 (06/08/2021) Fri : Understand host networking configuration on the nodes, connectivity between pods, Go through Concepts docs
 * Day - 16 (07/08/2021) Sat : Concepts in depth
 
-* Later - Generators, kubernetes-hard-way (for the second time), kustomize, Concepts
+* Later - Generators, kubernetes-hard-way (for the second time), kustomize, Concepts, downwardAPI
