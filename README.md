@@ -103,7 +103,8 @@ Module 2 - Workloads and Scheduling - 15%
 * Day - 14 (05/08/2021) Thu : PDB, Lifecycle hooks, Container probes, Resource limits, LimitRange, Quota, PriorityClass, Manifest and templating tools
 
 Module 3 - Services and Networking - 20%
-* Day - 15 (06/08/2021) Fri : Understand host networking configuration on the nodes, connectivity between pods, Go through Concepts docs
-* Day - 16 (07/08/2021) Sat : Concepts in depth
+* Day - 15 (06/08/2021) Fri : Concepts - cluster architecture and components
+* Day - 16 (07/08/2021) Sat : Concepts - Containers, workloads, services, load balancing and networking
+* Day - 17 (08/08/2021) Sun : Understand host networking configuration on the nodes, connectivity between pods
 
 * Later - Generators, kubernetes-hard-way (for the second time), kustomize, Concepts, downwardAPI
