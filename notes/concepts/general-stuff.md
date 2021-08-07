@@ -4,3 +4,4 @@
 * Kubectl apply -k to apply with `kustomize`
 * Field selectors lets you filter resources based on arbitary fields. eg:
   `k get po --field-selector status.phase=Running`
+* kubectl rollout restart [name] -> To do a rolling restart of a workload
