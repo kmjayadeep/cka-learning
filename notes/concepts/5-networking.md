@@ -67,3 +67,36 @@ the pod.
 We can specify dns config on a per pod basis to configure additional nameservers
 
 Pods can discover services by checking environment variables.
+
+# Ingress
+
+Ingress is to provide external access to the application. It can do load
+balancing, path based routing etc.
+
+An ingress controller should be installed in order for ingress to work
+
+install nginx ingress controller
+```
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.48.1/deploy/static/provider/baremetal/deploy.yaml
+```
+
+To configure TLS, A secret should be created with tld key and crt. Then this
+secret name can be referenced in the secretName field of secret configuration in
+ingress.
+
+if there are multiple ingress controllers in the cluster, we can add an
+annotation to the ingress resource `ingress.class` with the ingress class of the
+controller which we would like to handle the ingress resource.
+
+# Network Policy
+
+It is used to control how pods communicate with other pods and external
+networks.
+network policy is implemented by Network Plugin. So only works on supported CNIs
+
+With network policy we can define Ingress and Egress rules for each pod based on
+label selectors. It sort of acts as a firewall for pods.
+
+The namespaceselector and podselector can be used together to target a specific
+set of pods in a specific set of namespaces. If they are specified in different
+`from` or `to` blocks, then it becomes an `OR` condition.

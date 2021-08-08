@@ -105,7 +105,7 @@ Module 2 - Workloads and Scheduling - 15%
 Module 3 - Services and Networking - 20%
 * Day - 15 (06/08/2021) Fri : Concepts - cluster architecture and components
 * Day - 16 (07/08/2021) Sat : Concepts - Containers, workloads
-* Day - 17 (08/08/2021) Sun : Concepts - services, load balancing and networking
+* Day - 17 (08/08/2021) Sun : Concepts - services, load balancing and networking, storage
 * Day - 18 (09/08/2021) Mon : Understand host networking configuration on the nodes, connectivity between pods
 
 * Later - kubernetes-hard-way (for the second time), kustomize, downwardAPI,

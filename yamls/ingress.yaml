@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: productpage
+spec:
+  rules:
+  - http:
+      paths:
+      - backend:
+          service:
+            name: productpage
+            port:
+              number: 9080
+        path: /productpage
+        pathType: Prefix
