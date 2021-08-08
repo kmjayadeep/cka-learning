@@ -108,5 +108,5 @@ Module 3 - Services and Networking - 20%
 * Day - 17 (08/08/2021) Sun : Concepts - services, load balancing and networking, storage
 * Day - 18 (09/08/2021) Mon : Understand host networking configuration on the nodes, connectivity between pods
 
-* Later - kubernetes-hard-way (for the second time), kustomize, downwardAPI,
+* Later - kubernetes-hard-way (for the second time), kustomize, downwardAPI, Security
 * Later - Go through tasks in docs

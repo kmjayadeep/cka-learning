@@ -72,3 +72,17 @@ be accesed.
 ## PVC
 
 pvc can have label selectors and matchexpressions to choose which PVs can be bound to the PVC.
+
+## StorageClass
+
+It has the specs of the underlying storage backend. The provisioner determines
+what kind of storage it is backend from. There are some inbuilt provisioners
+like AWSElasticBlockStore, Glusterfs etc
+
+The parameters in the spc specifies the parameters required to provision the
+underying storage mechanism.
+
+volume binding mode
+* Immediete -> Create pvc without waiting for pod to be created. This can make
+  pods unschedulable
+* WaitForFirstConsumer -> Wait for pod to be created.
