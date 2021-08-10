@@ -106,7 +106,9 @@ Module 3 - Services and Networking - 20%
 * Day - 15 (06/08/2021) Fri : Concepts - cluster architecture and components
 * Day - 16 (07/08/2021) Sat : Concepts - Containers, workloads
 * Day - 17 (08/08/2021) Sun : Concepts - services, load balancing and networking, storage
-* Day - 18 (09/08/2021) Mon : Understand host networking configuration on the nodes, connectivity between pods
+* Day - 18 (09/08/2021) Mon : Off
+* Day - 19 (10/08/2021) Tue : Networking model, services, ingress, create excercises for networking
+* Day - 20 (11/08/2021) Wed : CoreDNS, CNI, hands on excercises
 
 * Later - kubernetes-hard-way (for the second time), kustomize, downwardAPI, Security
 * Later - Go through tasks in docs
