@@ -40,6 +40,8 @@ My notes and preparation materials for Certified Kubernetes Administrator Exam. 
 - [ ] Master the kubernetes official documentation
 - [ ] Take some sample test from somewhere
 - [ ] Install kubernetes in a single node using binaries, without tls and all
+- [ ] Try out a full sample test locally
+- [ ] Try out all my excercises again
 - [ ] Try out killer.sh free sessions
 - [ ] Schedule the exam (sometime around august last week or September first week 2021)
 - [ ] Go through notes again
@@ -111,4 +113,4 @@ Module 3 - Services and Networking - 20%
 * Day - 20 (11/08/2021) Wed : CoreDNS, CNI, hands on excercises
 
 * Later - kubernetes-hard-way (for the second time), kustomize, downwardAPI, Security
-* Later - Go through tasks in docs
+* Later - Go through tasks in docs, jsonpath in depth
