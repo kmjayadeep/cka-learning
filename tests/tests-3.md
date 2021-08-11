@@ -9,6 +9,13 @@ k create deploy nginx --image nginx
 k expose deploy nginx --port 80
 ```
 
+Create a nodeport service on port 32000
+
+```
+k expose deploy nginx --port 80 --type NodePort --dry-run -o yaml > nodeport.yaml
+```
+edit and set ports.nodePort manually
+
 ## DNS
 
 Adjust the dns zone of the cluster from `cluster.local` to `my.local`
@@ -30,4 +37,13 @@ wget https://docs.projectcalico.org/manifests/calico.yaml
 
 ```
 k apply -f calico.yaml
+```
+
+## Ingress
+
+Create an ingress to route traffic to productpage service `productpage`
+on port 9080
+
+```
+k create ing productpage --rule "/productpage=productpage:9080"
 ```
