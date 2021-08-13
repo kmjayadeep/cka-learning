@@ -112,5 +112,9 @@ Module 3 - Services and Networking - 20%
 * Day - 19 (10/08/2021) Tue : Networking model, services, ingress, create excercises for networking
 * Day - 20 (11/08/2021) Wed : CoreDNS, CNI, hands on excercises
 
+Moduel 4 - Storage - 10%
+* Day - 21 (12/08/2021) Thu : Storageclass, PV, PV mode, access mode, reclaim policy
+* Day - 22 (13/08/2021) Fri : PVC, configuring apps, excercises
+
 * Later - kubernetes-hard-way (for the second time), kustomize, downwardAPI, Security
-* Later - Go through tasks in docs, jsonpath in depth
+* Later - Go through tasks in docs, jsonpath in depth, jq & yq?
