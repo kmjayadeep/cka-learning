@@ -116,5 +116,10 @@ Module 4 - Storage - 10%
 * Day - 21 (12/08/2021) Thu : Storageclass, PV, PV mode, access mode, reclaim policy
 * Day - 22 (13/08/2021) Fri : PVC, configuring apps, excercises
 
+Module 5 - Troubleshooting - 30%
+* Day - 23 (14/08/2021) Sat : Cluster and node logging, container stdout and stderr
+* Day - 23 (14/08/2021) Sat : Monitor applications, app failure
+* Day - 23 (14/08/2021) Sat : Cluster component failure, networking Troubleshooting
+
 * Later - kubernetes-hard-way (for the second time), kustomize, downwardAPI, Security
 * Later - Go through tasks in docs, jsonpath in depth, jq & yq?
