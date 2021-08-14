@@ -2,6 +2,13 @@
 
 ## Deployments and Rollouts
 
+* Create a busybox pod which prints the date in a loop every second
+
+
+```
+k run busy --image busybox --dry-run=client -o yaml -- sh -c "while true;do date;sleep 1;done;"
+```
+
 * Create a deployment `web` using the image `nginx` which has 3 replicas. Watch it's rollout status
 
 ```

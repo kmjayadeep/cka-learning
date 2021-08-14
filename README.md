@@ -118,8 +118,8 @@ Module 4 - Storage - 10%
 
 Module 5 - Troubleshooting - 30%
 * Day - 23 (14/08/2021) Sat : Cluster and node logging, container stdout and stderr
-* Day - 23 (14/08/2021) Sat : Monitor applications, app failure
-* Day - 23 (14/08/2021) Sat : Cluster component failure, networking Troubleshooting
+* Day - 24 (15/08/2021) Sun : Monitor applications, app failure
+* Day - 25 (16/08/2021) Mon : Cluster component failure, networking Troubleshooting
 
 * Later - kubernetes-hard-way (for the second time), kustomize, downwardAPI, Security
 * Later - Go through tasks in docs, jsonpath in depth, jq & yq?
