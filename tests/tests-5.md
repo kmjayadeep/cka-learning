@@ -63,3 +63,16 @@ spec:
         sleep 1;
       done      
 ```
+
+# Create a deployment, a service and dump the iptable rules corresponding to that service
+
+```
+k create deploy nginx --image nginx --replicas=3
+k expose deploy nginx --port=80
+```
+
+ssh node
+
+```
+iptables-save  | grep nginx > nginx-rules
+```
