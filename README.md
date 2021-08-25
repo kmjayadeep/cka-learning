@@ -28,6 +28,28 @@ My notes and preparation materials for Certified Kubernetes Administrator Exam. 
 * Learn kustomize
 * awk, grep regex, xargs etc
 
+# Links from killer.sh
+
+Resources
+
+The majority of tasks in the CKA will also be around creating Kubernetes resources, like its tested in the CKAD. So we suggest to do:
+
+Maybe 2–3 times https://github.com/dgkanatsios/CKAD-exercises
+The CKAD series with scenarios on Medium
+The CKA series with scenarios on Medium
+Imagine and create your own scenarios to solve
+Know advanced scheduling: https://kubernetes.io/docs/concepts/scheduling/kube-scheduler
+
+Components
+
+The other part is understanding Kubernetes components and being able to fix and investigate clusters. Understand this: https://kubernetes.io/docs/tasks/debug-application-cluster/debug-cluster
+When you have to fix a component (like kubelet) in one cluster, just check how its setup on another node in the same or even another cluster. You can copy config files over etc
+If you like you can look at Kubernetes The Hard Way once. But it's NOT necessary to do, the CKA is not that complex. But KTHW helps understanding the concepts
+You should install your own cluster using kubeadm (one master, one worker) in a VM or using a cloud provider and investigate the components
+Know how to use kubeadm to for example add nodes to a cluster
+Know how to create an Ingress resources
+Know how to snapshot/restore ETCD from another machine
+
 # Plan
 
 - [x] Complete `Kubernetes the hard way` using LXC containers and document the steps (Or maybe using digitalocean droplets) - try multiple times
@@ -123,3 +145,14 @@ Module 5 - Troubleshooting - 30%
 
 * Later - kubernetes-hard-way (for the second time), kustomize, downwardAPI, Security
 * Later - Go through tasks in docs, jsonpath in depth, jq & yq?
+
+## On exam day
+
+on tmux, run 
+
+```
+ctrl+b
+:set -g mouse on
+```
+
+use shift select to copy from tmux
