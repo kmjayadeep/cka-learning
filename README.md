@@ -156,3 +156,18 @@ ctrl+b
 ```
 
 use shift select to copy from tmux
+
+set bashrc
+
+```
+alias k=kubectl
+export do="--dry-run=client -o yaml"
+```
+
+vim config in `.vimrc`
+
+```
+set expandtab
+set shiftwidth=2
+set tabstop=2
+```
