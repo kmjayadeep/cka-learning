@@ -37,7 +37,7 @@ the lease every 10 seconds to indicate that it is alive. If kubelet fails
 to send heartbeat for a specified period time, Node controller wil take 
 further action to start evicting the pods from the node
 
-From 1.22, Kubelets can run with Swap enabled. We can speficy the
+From 1.22, Kubelets can run with Swap enabled. We can specify the
 swap behaviour in kubelet configuration
 
 Kubelet has an https endpoint which the api server will use to connect

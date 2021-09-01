@@ -58,16 +58,16 @@ Know how to snapshot/restore ETCD from another machine
 - [x] Learn RBAC from official doc
 - [x] Learn each topic from curriculm separately and prepare notes
 - [x] Install using kubeadm on digitalocean droplets and play with it
-- [ ] Go through a CKA excercises repo and try out all the excercises
-- [ ] Master the kubernetes official documentation
-- [ ] Take some sample test from somewhere
+- [x] Go through a CKA excercises repo and try out all the excercises
+- [x] Master the kubernetes official documentation
+- [x] Take some sample test from somewhere
 - [ ] Install kubernetes in a single node using binaries, without tls and all
 - [ ] Try out a full sample test locally
 - [ ] Try out all my excercises again
-- [ ] Try out killer.sh free sessions
-- [ ] Schedule the exam (sometime around august last week or September first week 2021)
-- [ ] Go through notes again
-- [ ] Take the exam!
+- [x] Try out killer.sh free sessions
+- [x] Schedule the exam (sometime around august last week or September first week 2021)
+- [x] Go through notes again
+- [x] Take the exam!
 
 
 # Links
@@ -142,6 +142,8 @@ Module 5 - Troubleshooting - 30%
 * Day - 23 (14/08/2021) Sat : Cluster and node logging, container stdout and stderr, Monitor applications, app failure, cluster component failure
 * Day - 24 (15/08/2021) Sun : Networking troubleshooting, excercises
 * Day - 25 (16/08/2021) Mon : Killer.sh one session
+
+Exam day : 01 September 2021
 
 * Later - kubernetes-hard-way (for the second time), kustomize, downwardAPI, Security
 * Later - Go through tasks in docs, jsonpath in depth, jq & yq?

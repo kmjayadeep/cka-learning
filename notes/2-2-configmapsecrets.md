@@ -72,10 +72,10 @@ Add this to pod spec. Items are optional. If you skip that, it will mount all ke
 volumes:
 - name: fromconfig
   configMap:
-  name: test
-  items:
-  - key: jd.csr
-    path: jd
+    name: test
+    items:
+    - key: jd.csr
+      path: jd
 ```
 Add mount to container spec
 
