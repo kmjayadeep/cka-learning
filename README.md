@@ -2,6 +2,10 @@
 
 My notes and preparation materials for Certified Kubernetes Administrator Exam. This repo may also contain additional resources and links which are not related to CKA, but generally useful for Kubernetes administration
 
+Update: I passed CKA exam with 95% score! Here is the screenshot
+
+![CKA](images/cka.png "CKA")
+
 
 # Folder structure
 
